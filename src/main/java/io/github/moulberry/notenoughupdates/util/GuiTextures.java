@@ -68,12 +68,14 @@ public class GuiTextures {
     public static final ResourceLocation sort_tool = new ResourceLocation("notenoughupdates:sort_weapon.png");
     public static final ResourceLocation sort_armor = new ResourceLocation("notenoughupdates:sort_armor.png");
     public static final ResourceLocation sort_accessory = new ResourceLocation("notenoughupdates:sort_accessory.png");
+    public static final ResourceLocation sort_stranded = new ResourceLocation("notenoughupdates:sort_stranded.png");
     public static final ResourceLocation sort_all_active = new ResourceLocation("notenoughupdates:sort_all_active.png");
     public static final ResourceLocation sort_mob_active = new ResourceLocation("notenoughupdates:sort_mob_active.png");
     public static final ResourceLocation sort_pet_active = new ResourceLocation("notenoughupdates:sort_pet_active.png");
     public static final ResourceLocation sort_tool_active = new ResourceLocation("notenoughupdates:sort_weapon_active.png");
     public static final ResourceLocation sort_armor_active = new ResourceLocation("notenoughupdates:sort_armor_active.png");
     public static final ResourceLocation sort_accessory_active = new ResourceLocation("notenoughupdates:sort_accessory_active.png");
+    public static final ResourceLocation sort_stranded_active = new ResourceLocation("notenoughupdates:sort_stranded_active.png");
 
     public static final ResourceLocation order_alphabetical = new ResourceLocation("notenoughupdates:order_alphabetical.png");
     public static final ResourceLocation order_rarity = new ResourceLocation("notenoughupdates:order_rarity.png");

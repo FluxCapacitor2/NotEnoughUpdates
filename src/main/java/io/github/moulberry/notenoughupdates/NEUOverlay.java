@@ -110,12 +110,13 @@ public class NEUOverlay extends Gui {
 
     private final String mobRegex = ".*?((_MONSTER)|(_ANIMAL)|(_MINIBOSS)|(_BOSS)|(_SC))$";
     private final String petRegex = ".*?;[0-5]$";
+    private final String strandedRegex = ".*?((_STRANDED))$";
 
     private final ResourceLocation[] sortIcons = new ResourceLocation[]{
-            sort_all, sort_mob, sort_pet, sort_tool, sort_armor, sort_accessory
+            sort_all, sort_mob, sort_pet, sort_tool, sort_armor, sort_accessory, sort_stranded
     };
     private final ResourceLocation[] sortIconsActive = new ResourceLocation[]{
-            sort_all_active, sort_mob_active, sort_pet_active, sort_tool_active, sort_armor_active, sort_accessory_active
+            sort_all_active, sort_mob_active, sort_pet_active, sort_tool_active, sort_armor_active, sort_accessory_active, sort_stranded_active
     };
 
     private final ResourceLocation[] orderIcons = new ResourceLocation[]{
@@ -184,6 +185,7 @@ public class NEUOverlay extends Gui {
     private static final int SORT_MODE_TOOL = 3;
     private static final int SORT_MODE_ARMOR = 4;
     private static final int SORT_MODE_ACCESSORY = 5;
+    private static final int SORT_MODE_STRANDED = 6;
 
     private boolean disabled = false;
 
@@ -1237,7 +1239,7 @@ public class NEUOverlay extends Gui {
         }
 
         if (getSortMode() == SORT_MODE_ALL) {
-            return !internalname.matches(mobRegex);
+            return !internalname.matches(mobRegex) && !internalname.matches(strandedRegex);
         } else if (getSortMode() == SORT_MODE_MOB) {
             return internalname.matches(mobRegex);
         } else if (getSortMode() == SORT_MODE_PET) {
@@ -1249,7 +1251,8 @@ public class NEUOverlay extends Gui {
             return checkItemType(item.get("lore").getAsJsonArray(), "HELMET", "CHESTPLATE", "LEGGINGS", "BOOTS", "DUNGEON HELMET", "DUNGEON CHESTPLATE", "DUNGEON LEGGINGS", "DUNGEON BOOTS") >= 0;
         } else if (getSortMode() == SORT_MODE_ACCESSORY) {
             return checkItemType(item.get("lore").getAsJsonArray(), "ACCESSORY", "HATCCESSORY", "DUNGEON ACCESSORY") >= 0;
-        }
+        } else if (getSortMode() == SORT_MODE_STRANDED)
+            return internalname.matches(strandedRegex);
         return true;
     }
 

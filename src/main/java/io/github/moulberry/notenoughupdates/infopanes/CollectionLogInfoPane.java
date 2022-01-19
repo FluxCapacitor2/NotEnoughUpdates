@@ -28,6 +28,7 @@ import static io.github.moulberry.notenoughupdates.util.GuiTextures.item_mask;
 public class CollectionLogInfoPane extends ScrollableInfoPane {
     private final String mobRegex = ".*?((_MONSTER)|(_ANIMAL)|(_MINIBOSS)|(_BOSS)|(_SC))$";
     private final String petRegex = ".*?;[0-4]$";
+    private final String strandedRegex = ".*?((_STRANDED))$";
 
     TreeSet<String> items = new TreeSet<>(getItemComparator());
 
@@ -76,7 +77,7 @@ public class CollectionLogInfoPane extends ScrollableInfoPane {
     private void refreshItems() {
         items.clear();
         for (String internalname : manager.getItemInformation().keySet()) {
-            if (!manager.auctionManager.isVanillaItem(internalname) && !internalname.matches(mobRegex)) {
+            if (!manager.auctionManager.isVanillaItem(internalname) && !internalname.matches(mobRegex) && !internalname.matches(strandedRegex)) {
                 JsonObject item = manager.getItemInformation().get(internalname);
                 JsonArray lore = manager.getItemInformation().get(internalname).get("lore").getAsJsonArray();
                 switch (filterMode) {
